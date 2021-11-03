@@ -36,7 +36,7 @@ router.get('/voter/:id', (req, res) => {
     });
 });
 
-// regesters the voter
+// regester the voter
 router.post('/voter', ({ body }, res) => {
     // data validation
     const errors = inputCheck(body, 'first_name', 'last_name', 'email');
