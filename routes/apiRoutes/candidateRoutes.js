@@ -24,7 +24,7 @@ router.get('/candidates', (req, res) => {
 });
 
 // GET a single candidate by id
-router.get('api/candidate/:id', (req, res) => {
+router.get('/candidate/:id', (req, res) => {
     const sql = `SELECT candidates.*, parties.name 
                 AS party_name 
                 FROM candidates 
@@ -102,6 +102,7 @@ router.put('/candidate/:id', (req, res) => {
                 WHERE id = ?`;
     const params = [req.body.party_id, req.params.id];
     db.query(sql, params, (err, result) => {
+        console.log(result)
         if (err) {
             res.status(400).json({ error: err.message });
             // check if a record was found
